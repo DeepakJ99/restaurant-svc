@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restaurant-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: restaurant-svc
+  template:
+    metadata:
+      labels:
+        app: restaurant-svc
+    spec:
+      containers:
+      - name: restaurant-svc
+        image: registry.example.com/restaurant-svc-image:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+          value: "kafka:9092"

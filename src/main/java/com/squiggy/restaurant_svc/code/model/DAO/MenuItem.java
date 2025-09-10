@@ -1,10 +1,14 @@
-package com.squiggy.restaurant_svc.model.DAO;
-
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+package com.squiggy.restaurant_svc.code.model.DAO;
 
 import java.util.UUID;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
 @Entity
 @Data

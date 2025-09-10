@@ -1,11 +1,12 @@
-package com.squiggy.restaurant_svc.service;
-
-import com.squiggy.restaurant_svc.model.DAO.Restaurant;
-import com.squiggy.restaurant_svc.repository.RestaurantRepository;
-import org.springframework.stereotype.Service;
+package com.squiggy.restaurant_svc.code.service;
 
 import java.util.List;
 import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
+import com.squiggy.restaurant_svc.code.model.DAO.Restaurant;
+import com.squiggy.restaurant_svc.code.repository.RestaurantRepository;
 
 @Service
 public class RestaurantService {

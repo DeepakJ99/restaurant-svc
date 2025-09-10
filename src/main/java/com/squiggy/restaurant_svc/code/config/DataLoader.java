@@ -1,15 +1,16 @@
-package com.squiggy.restaurant_svc.config;
+package com.squiggy.restaurant_svc.code.config;
 
 
-import com.squiggy.restaurant_svc.model.DAO.Coords;
-import com.squiggy.restaurant_svc.model.DAO.MenuItem;
-import com.squiggy.restaurant_svc.model.DAO.Restaurant;
-import com.squiggy.restaurant_svc.repository.RestaurantRepository;
+import java.util.Arrays;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Arrays;
+import com.squiggy.restaurant_svc.code.model.DAO.Coords;
+import com.squiggy.restaurant_svc.code.model.DAO.MenuItem;
+import com.squiggy.restaurant_svc.code.model.DAO.Restaurant;
+import com.squiggy.restaurant_svc.code.repository.RestaurantRepository;
 
 @Configuration
 public class DataLoader {

@@ -1,0 +1,17 @@
+<configuration>
+
+    <!-- Use a property from application.properties or provide default -->
+    <springProperty name="LOG_LEVEL" source="logging.level.com.squiggy.restaurant_svc.code" defaultValue="INFO"/>
+    <appender name="TCP" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>fluent-bit:5170</destination>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"container":"restaurant-svc"}</customFields>
+        </encoder>
+    </appender>
+
+    <!-- Define logger only for your package -->
+    <logger name="com.squiggy.restaurant_svc.code" level="${LOG_LEVEL}" additivity="true">
+        <appender-ref ref="TCP"/>
+    </logger>
+
+</configuration>

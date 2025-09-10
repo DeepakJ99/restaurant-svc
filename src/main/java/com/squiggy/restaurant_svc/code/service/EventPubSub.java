@@ -1,26 +1,30 @@
-package com.squiggy.restaurant_svc.service;
+package com.squiggy.restaurant_svc.code.service;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.squiggy.api_spec.DTO.OrderStatus;
 import com.squiggy.api_spec.DTO.event.OrderInitiationEvent;
 import com.squiggy.api_spec.DTO.event.OrderStatusUpdateEvent;
-import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Service;
 
 @Service
 public class EventPubSub {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
     private ObjectMapper objectMapper = new ObjectMapper();
+    private static final Logger logger = LoggerFactory.getLogger(EventPubSub.class);
     public EventPubSub(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
     @KafkaListener(topics = "orders-channel", groupId = "restaurant-svc")
     public void consume(String jsonString) throws JsonProcessingException {
-        System.out.println(jsonString);
+        logger.info("Consumed json from orders-channel {}", jsonString);
         try{
             OrderStatusUpdateEvent orderStatusUpdateEvent = objectMapper.readValue(jsonString, OrderStatusUpdateEvent.class);
             if(orderStatusUpdateEvent.getOrderStatus() == OrderStatus.CONFIRMED) {

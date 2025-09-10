@@ -1,10 +1,11 @@
-package com.squiggy.restaurant_svc.repository;
+package com.squiggy.restaurant_svc.code.repository;
 
-import com.squiggy.restaurant_svc.model.DAO.Restaurant;
+import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.UUID;
+import com.squiggy.restaurant_svc.code.model.DAO.Restaurant;
 
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, UUID> {
