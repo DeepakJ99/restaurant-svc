@@ -19,6 +19,9 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Test authentication with GitHub Packages
+        run: |
+          curl -v -u ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} https://maven.pkg.github.com/DeepakJ99/api-spec/
       - name: Set up Maven settings
         run: |
           mkdir -p ~/.m2
