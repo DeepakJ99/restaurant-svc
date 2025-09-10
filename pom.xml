@@ -75,7 +75,7 @@
             <version>7.4</version>
         </dependency>
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId>com.squiggy</groupId>
 			<artifactId>api-spec</artifactId>
 			<version>1.0.2</version>
     	</dependency>
