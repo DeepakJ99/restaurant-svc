@@ -33,7 +33,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub OWNER Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/OWNER/REPO_NAME</url>
+			<url>https://maven.pkg.github.com/DeepakJ99/api-spec</url>
 		</repository>
 	</repositories>		
 	<dependencies>
