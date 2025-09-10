@@ -21,7 +21,7 @@ jobs:
           distribution: 'temurin'
       - name: Test authentication with GitHub Packages
         run: |
-          curl -v -u ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} https://maven.pkg.github.com/DeepakJ99/api-spec/
+          curl -v -u ${{ github.actor }}:${{ secrets.MASTER_TOKEN }} https://maven.pkg.github.com/DeepakJ99/api-spec/
       - name: Set up Maven settings
         run: |
           mkdir -p ~/.m2
@@ -30,7 +30,7 @@ jobs:
               <server>
                 <id>github</id>
                 <username>${{ github.actor }}</username>
-                <password>${{ secrets.GITHUB_TOKEN }}</password>
+                <password>${{ secrets.MASTER_TOKEN }}</password>
               </server>
             </servers>
           </settings>" > ~/.m2/settings.xml
